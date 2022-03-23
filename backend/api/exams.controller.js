@@ -2,7 +2,7 @@ import ExamsDAO from "../dao/examsDAO.js" //import RestaurantsDAO from "../dao/r
 
 export default class ExamsController { //export default class RestaurantsController {
   static async apiGetExams(req, res, next) { //static async apiGetRestaurants(req, res, next) {
-    const ExamsPerPage = req.query.examsPerPage ? parseInt(req.query.examsPerPage, 10) : 20 //    const restaurantsPerPage = req.query.restaurantsPerPage ? parseInt(req.query.restaurantsPerPage, 10) : 20 
+    const examsPerPage = req.query.examsPerPage ? parseInt(req.query.examsPerPage, 10) : 20 //    const restaurantsPerPage = req.query.restaurantsPerPage ? parseInt(req.query.restaurantsPerPage, 10) : 20 
     const page = req.query.page ? parseInt(req.query.page, 10) : 0
 
     let filters = {}
@@ -17,7 +17,7 @@ export default class ExamsController { //export default class RestaurantsControl
     const { examsList, totalNumExams } = await ExamsDAO.getExams({
       filters,
       page,
-      ExamsPerPage,
+      examsPerPage,
     })
 
     let response = {

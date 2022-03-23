@@ -8,7 +8,7 @@ export default class ExamsDao {
             return
         }
         try {
-            exams = await conn.db(process.env.TECH_DIVE_EXAM_NS).collection("ExamInformationWithBrixia")
+            exams = await conn.db(process.env.TECH_DIVE_EXAM_NS).collection("exams")
         } catch (e) {
             console.error(
                 `Unable to establish a colleciton handle in examsDAO: ${e}`,
